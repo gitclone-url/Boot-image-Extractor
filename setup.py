@@ -3,8 +3,7 @@
 # 
 # Install with: pip install .
 #
-# Usage: sudo boot_image_extractor.py or su -c 'boot_image_extractor.py'
-#
+# Usage: sudo boot_image_extractor.py
 
 from setuptools import setup
 
