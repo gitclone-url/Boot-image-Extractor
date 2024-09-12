@@ -1,16 +1,8 @@
 <div align="center">
   <img src="https://github.com/gitclone-url/Boot-image-Extractor/assets/98699436/8fc2fc00-4dcd-4506-a161-7fec49a6ee34" loading="lazy" alt="Boot Image Extractor"/>
-<h2></h2>   
 </div>
 
-
-<div style="display: flex; justify-content: center;">
-  <div style="max-width: 800px;">
-    <p>
-      Boot Image Extractor is a standalone Python script designed to extract the boot image from Android devices with root access. It supports both <a href="https://source.android.com/devices/tech/ota/ab">A/B</a> and <a href="https://source.android.com/devices/bootloader/partitions">legacy partition</a> styles. This script was developed as part of an automated method for extracting boot images described in the <a href="https://gist.github.com/gitclone-url/a1f693b64d8f8701ec24477a2ccaab87#file-boot-image-extraction-guide-md">Boot Image Extraction Guide</a>.
-    </p>
-  </div>
-</div>
+Boot Image Extractor is a standalone Python script designed to extract the boot image from Android devices with root access. It supports both [A/B](https://source.android.com/devices/tech/ota/ab) and [legacy partition](https://source.android.com/devices/bootloader/partitions) styles. This script was developed as part of an automated method for extracting boot images described in the [Boot Image Extraction Guide](https://gist.github.com/gitclone-url/a1f693b64d8f8701ec24477a2ccaab87#file-boot-image-extraction-guide-md).
 
 ## Requirements
 
@@ -30,7 +22,7 @@
    ```
 
 3. **Check for PHH Superuser (if applicable):**
-   If you are going to use this script on a [Phh-based GSI](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29) that ships with an inbuilt [superuser](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29#naming-conventions-that-some-gsi-buildermaintainer-uses), check if the PHH Superuser app is installed:
+   If you are using a [Phh-based GSI](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29) that ships with an inbuilt [superuser](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29#naming-conventions-that-some-gsi-buildermaintainer-uses), check if the PHH Superuser app is installed:
    ```bash
    (pm list packages | grep me.phh.superuser) && echo "App installed" || echo "Not found"
    ```
@@ -41,19 +33,10 @@
    ```bash
    su
    ```
+   
+   > **Important:** After granting superuser permissions, Return to the normal user environment by typing `exit` or pressing Ctrl+D. Then Proceed with the installation steps.
 
-## Installation Instructions
-
-#### Procedure 1: Direct Installation
-
-1. **Run with One-Liner Commands:**
-   Copy and paste the following command in termux and hit enter to start running the script:
-   ```bash
-   apt update && apt upgrade -y; { command -v tsu && command -v curl && command -v python && command -v pip && python -c 'import pyfiglet' &>/dev/null; } || apt install -y tsu curl python; pip install pyfiglet; curl -o boot_image_extractor.py https://raw.githubusercontent.com/gitclone-url/Boot-image-Extractor/main/scripts/boot_image_extractor.py; clear; sudo python boot_image_extractor.py
-   ```
-   > **Note:** It may take some time to run for the first time because the script will be downloaded along with the required tools. Please be patient.
-
-#### Procedure 2: Manual Installation
+### Installation Instructions
 
 1. **Clone or Download Source:**
    Clone the repository and navigate to the project directory:
@@ -61,7 +44,9 @@
    git clone https://github.com/gitclone-url/Boot-image-Extractor.git
    cd Boot-image-Extractor
    ```
-   or download the source zip file from [GitHub](https://github.com/gitclone-url/Boot-image-Extractor/archive/refs/heads/master.zip), extract it, and navigate to the extracted directory.
+   > **Note:** Install **Git** with `pkg install git`, if not already installed on the system.
+   
+   Alternatively, download the source zip file from [GitHub](https://github.com/gitclone-url/Boot-image-Extractor/archive/refs/heads/master.zip), extract it, and navigate to the extracted directory.
 
 2. **Install Dependencies:**
    Ensure Python and required packages are installed:
@@ -84,7 +69,7 @@ After installation, execute the script using the following command:
 sudo boot_image_extractor.py
 ```
 
-If you used the direct installation method and the script was downloaded to a different directory instead of Termux's `$HOME` directory, you may need to change to the directory where the script is located before running it.
+The extracted boot image will be saved in the same directory from which you run the script.
 
 ## Contribution
 
